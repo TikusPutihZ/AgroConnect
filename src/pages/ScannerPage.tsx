@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ScanLine, Zap, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import scannerVegetable from "@/assets/scanner-vegetable.jpg";
 
 interface ScanResult {
   name: string;
@@ -34,8 +35,10 @@ const ScannerPage = () => {
     <div className="flex flex-col min-h-screen bg-foreground relative overflow-hidden">
       {/* Camera viewfinder mock */}
       <div className="flex-1 relative flex items-center justify-center">
+        {/* Live camera background */}
+        <img src={scannerVegetable} alt="Camera feed" className="absolute inset-0 w-full h-full object-cover" />
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-foreground/90" />
+        <div className="absolute inset-0 bg-black/40" />
 
         {/* Viewfinder frame */}
         <div className="relative w-64 h-64">
