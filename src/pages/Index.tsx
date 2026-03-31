@@ -29,7 +29,6 @@ const Index = () => {
       <div className="px-5 pt-6 pb-3">
         <div className="flex items-center gap-2 mb-1">
           <img src={agroconnectLogo} alt="AgroConnect" className="h-7 object-contain" />
-          <span className="text-base font-bold text-primary">AgroConnect</span>
           <span className="font-cursive text-xs text-muted-foreground">by RasaRakyat</span>
         </div>
         <h1 className="text-2xl font-bold text-foreground">Hello, Neighbor! 👋</h1>
