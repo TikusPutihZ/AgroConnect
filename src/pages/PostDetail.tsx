@@ -1,13 +1,17 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { ArrowLeft, MapPin, Calendar, MessageCircle } from "lucide-react";
+import { ArrowLeft, MapPin, Calendar, MessageCircle, Heart } from "lucide-react";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { posts } from "@/data/mockData";
+import { useLikes } from "@/context/LikesContext";
+import { cn } from "@/lib/utils";
 
 const PostDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const post = posts.find((p) => p.id === id);
+  const { isLiked, toggleLike } = useLikes();
 
   if (!post) {
     return (
@@ -17,8 +21,14 @@ const PostDetail = () => {
     );
   }
 
+  const liked = isLiked(post.id);
+
   return (
-    <div className="flex flex-col min-h-screen relative">
+    <motion.div
+      className="flex flex-col min-h-screen relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       {/* Header image */}
       <div className="relative">
         <img
@@ -32,9 +42,17 @@ const PostDetail = () => {
         >
           <ArrowLeft className="w-5 h-5 text-card-foreground" />
         </button>
+        <div className="absolute top-4 right-4 flex gap-2">
+          <button
+            onClick={() => toggleLike(post.id)}
+            className="w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-md"
+          >
+            <Heart className={cn("w-5 h-5", liked ? "fill-destructive text-destructive" : "text-card-foreground")} />
+          </button>
+        </div>
         <Badge
           variant={post.price === null ? "default" : "secondary"}
-          className="absolute top-4 right-4 text-sm px-3 py-1"
+          className="absolute bottom-4 left-4 text-sm px-3 py-1"
         >
           {post.price === null ? "Free" : `RM${post.price}`}
         </Badge>
@@ -81,7 +99,7 @@ const PostDetail = () => {
           Chat with Poster
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

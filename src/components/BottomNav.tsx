@@ -1,12 +1,12 @@
-import { Home, Search, PlusCircle, MessageCircle, User } from "lucide-react";
+import { Home, Map, PlusCircle, ScanLine, User } from "lucide-react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
 const tabs = [
-  { path: "/", icon: Home, label: "Home" },
-  { path: "/search", icon: Search, label: "Search" },
+  { path: "/home", icon: Home, label: "Home" },
+  { path: "/map", icon: Map, label: "Map" },
   { path: "/create", icon: PlusCircle, label: "Post", isCenter: true },
-  { path: "/chats", icon: MessageCircle, label: "Chats" },
+  { path: "/scanner", icon: ScanLine, label: "AI Scan" },
   { path: "/profile", icon: User, label: "Profile" },
 ];
 
@@ -14,8 +14,8 @@ const BottomNav = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Hide on detail pages
-  if (location.pathname.startsWith("/post/")) return null;
+  // Hide on login and detail pages
+  if (location.pathname === "/" || location.pathname.startsWith("/post/")) return null;
 
   return (
     <nav className="sticky bottom-0 left-0 right-0 bg-card border-t border-border z-50">

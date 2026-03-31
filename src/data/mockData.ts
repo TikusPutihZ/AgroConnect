@@ -3,7 +3,7 @@ export interface Post {
   title: string;
   description: string;
   image: string;
-  price: number | null; // null = free
+  price: number | null;
   category: string;
   distance: string;
   postedAt: string;
@@ -12,6 +12,7 @@ export interface Post {
     avatar: string;
   };
   quantity: string;
+  soldOut?: boolean;
 }
 
 export interface UserProfile {
@@ -21,9 +22,7 @@ export interface UserProfile {
   stats: {
     givenAway: number;
     sold: number;
-    likes: number;
     followers: number;
-    following: number;
   };
 }
 
@@ -72,6 +71,7 @@ export const posts: Post[] = [
     postedAt: "1 day ago",
     user: { name: "Siti Nurhaliza", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" },
     quantity: "5 pieces",
+    soldOut: true,
   },
   {
     id: "4",
@@ -135,6 +135,15 @@ export const posts: Post[] = [
   },
 ];
 
+export const mapPins = [
+  { id: "1", lat: 3.155, lng: 101.715, title: "Cherry Tomatoes", emoji: "🍅", price: null },
+  { id: "2", lat: 3.158, lng: 101.720, title: "Fresh Basil", emoji: "🌿", price: 3 },
+  { id: "3", lat: 3.150, lng: 101.710, title: "Ripe Mangoes", emoji: "🥭", price: 5 },
+  { id: "4", lat: 3.162, lng: 101.718, title: "Kangkung", emoji: "🥬", price: null },
+  { id: "5", lat: 3.148, lng: 101.725, title: "Chili Padi Seeds", emoji: "🌶️", price: 2 },
+  { id: "6", lat: 3.160, lng: 101.712, title: "Pandan Leaves", emoji: "🌿", price: null },
+];
+
 export const currentUser: UserProfile = {
   name: "Ahmad Faizal",
   bio: "Avid tomato grower 🍅 | Sharing is caring | Taman Melawati",
@@ -142,8 +151,6 @@ export const currentUser: UserProfile = {
   stats: {
     givenAway: 24,
     sold: 12,
-    likes: 89,
     followers: 156,
-    following: 73,
   },
 };

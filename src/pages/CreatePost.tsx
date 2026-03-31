@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Camera, MapPin } from "lucide-react";
+import { Camera, MapPin, ScanLine, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
@@ -9,6 +10,8 @@ import { toast } from "sonner";
 
 const CreatePost = () => {
   const [isSelling, setIsSelling] = useState(false);
+  const [price, setPrice] = useState("");
+  const [aiEstimating, setAiEstimating] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -17,8 +20,26 @@ const CreatePost = () => {
     });
   };
 
+  const handleAiEstimate = () => {
+    setAiEstimating(true);
+    toast.info("📸 Scanning your crop...", { description: "AI is analyzing the image" });
+    setTimeout(() => {
+      const prices = ["4.50", "8.00", "2.50", "6.00", "3.00"];
+      const suggested = prices[Math.floor(Math.random() * prices.length)];
+      setPrice(suggested);
+      setAiEstimating(false);
+      toast.success(`💡 Suggested price: RM${suggested}`, {
+        description: "Based on current market rates",
+      });
+    }, 2000);
+  };
+
   return (
-    <div className="flex flex-col">
+    <motion.div
+      className="flex flex-col"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+    >
       <div className="px-5 pt-6 pb-4">
         <h1 className="text-xl font-bold text-foreground">Share Your Harvest</h1>
         <p className="text-sm text-muted-foreground mt-0.5">
@@ -63,18 +84,45 @@ const CreatePost = () => {
           <Switch checked={isSelling} onCheckedChange={setIsSelling} />
         </div>
 
-        {/* Price */}
+        {/* Price with AI estimator */}
         {isSelling && (
           <div className="space-y-2">
             <Label htmlFor="price">Price (RM)</Label>
-            <Input
-              id="price"
-              type="number"
-              placeholder="0.00"
-              min="0"
-              step="0.50"
-              className="rounded-xl"
-            />
+            <div className="flex gap-2">
+              <Input
+                id="price"
+                type="number"
+                placeholder="0.00"
+                min="0"
+                step="0.50"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+                className="rounded-xl flex-1"
+              />
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleAiEstimate}
+                disabled={aiEstimating}
+                className="rounded-xl gap-1.5 border-primary text-primary hover:bg-primary/10 shrink-0"
+              >
+                {aiEstimating ? (
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  >
+                    <ScanLine className="w-4 h-4" />
+                  </motion.div>
+                ) : (
+                  <ScanLine className="w-4 h-4" />
+                )}
+                <Zap className="w-3 h-3" />
+                AI Price
+              </Button>
+            </div>
+            <p className="text-[10px] text-muted-foreground">
+              Use the AI estimator to scan your crop and get a suggested price
+            </p>
           </div>
         )}
 
@@ -95,7 +143,7 @@ const CreatePost = () => {
           Publish Post 🌿
         </Button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
