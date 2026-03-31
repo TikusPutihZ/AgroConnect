@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Leaf, Search, MapPin } from "lucide-react";
+import { Search, MapPin } from "lucide-react";
+import agroconnectLogo from "@/assets/agroconnect-logo.png";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import PostCard from "@/components/PostCard";
@@ -27,8 +28,7 @@ const Index = () => {
       {/* Header */}
       <div className="px-5 pt-6 pb-3">
         <div className="flex items-center gap-2 mb-1">
-          <Leaf className="w-5 h-5 text-primary" />
-          <span className="text-base font-bold text-primary">AgroConnect</span>
+          <img src={agroconnectLogo} alt="AgroConnect" className="h-7 object-contain" />
           <span className="font-cursive text-xs text-muted-foreground">by RasaRakyat</span>
         </div>
         <h1 className="text-2xl font-bold text-foreground">Hello, Neighbor! 👋</h1>
