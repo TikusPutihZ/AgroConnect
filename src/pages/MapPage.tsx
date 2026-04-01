@@ -16,9 +16,11 @@ const MapPage = () => {
       {/* Mock map background */}
       <div className="flex-1 relative bg-accent overflow-hidden" style={{ minHeight: "calc(100vh - 64px)" }}>
         <img
-          src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=1200&fit=crop"
+          src={mapBackground}
           alt="Map"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover"
+          width={800}
+          height={1200}
         />
         {/* Grid overlay for map feel */}
         <div className="absolute inset-0" style={{
