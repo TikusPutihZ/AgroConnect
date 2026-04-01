@@ -9,6 +9,7 @@ import mapBackground from "@/assets/map-background.jpg";
 
 const MapPage = () => {
   const [selectedPin, setSelectedPin] = useState<typeof mapPins[0] | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col h-full relative">
