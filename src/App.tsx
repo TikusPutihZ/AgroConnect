@@ -13,6 +13,8 @@ import ScannerPage from "./pages/ScannerPage";
 import PostDetail from "./pages/PostDetail";
 import CreatePost from "./pages/CreatePost";
 import ProfilePage from "./pages/ProfilePage";
+import ChatListPage from "./pages/ChatListPage";
+import ChatPage from "./pages/ChatPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const AppRoutes = () => {
         <Route path="/scanner" element={isLoggedIn ? <ScannerPage /> : <Navigate to="/" />} />
         <Route path="/post/:id" element={isLoggedIn ? <PostDetail /> : <Navigate to="/" />} />
         <Route path="/create" element={isLoggedIn ? <CreatePost /> : <Navigate to="/" />} />
+        <Route path="/chats" element={isLoggedIn ? <ChatListPage /> : <Navigate to="/" />} />
+        <Route path="/chat/:id" element={isLoggedIn ? <ChatPage /> : <Navigate to="/" />} />
         <Route path="/profile" element={isLoggedIn ? <ProfilePage /> : <Navigate to="/" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

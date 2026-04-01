@@ -144,6 +144,50 @@ export const mapPins = [
   { id: "6", lat: 3.160, lng: 101.712, title: "Pandan Leaves", emoji: "🌿", price: null },
 ];
 
+export interface ChatThread {
+  id: string;
+  user: { name: string; avatar: string };
+  lastMessage: string;
+  time: string;
+  unread: number;
+}
+
+export interface ChatMessage {
+  id: string;
+  sender: "me" | "them";
+  text: string;
+  time: string;
+}
+
+export const chatThreads: ChatThread[] = [
+  { id: "1", user: { name: "Aisha Binti Rahman", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" }, lastMessage: "Yes, the tomatoes are still available! Come pick up anytime 😊", time: "2 min ago", unread: 2 },
+  { id: "2", user: { name: "Raj Kumar", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" }, lastMessage: "Sure, I'll keep the basil for you until tomorrow", time: "1 hour ago", unread: 0 },
+  { id: "3", user: { name: "Siti Nurhaliza", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" }, lastMessage: "Sorry, the mangoes are all taken now", time: "3 hours ago", unread: 0 },
+  { id: "4", user: { name: "Lee Wei Ming", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" }, lastMessage: "I have more chili seeds if you need!", time: "Yesterday", unread: 1 },
+];
+
+export const chatMessages: Record<string, ChatMessage[]> = {
+  "1": [
+    { id: "m1", sender: "me", text: "Hi! Are the cherry tomatoes still available?", time: "10:30 AM" },
+    { id: "m2", sender: "them", text: "Yes they are! I just picked a fresh batch this morning 🍅", time: "10:32 AM" },
+    { id: "m3", sender: "me", text: "Great! Can I come pick them up today?", time: "10:33 AM" },
+    { id: "m4", sender: "them", text: "Yes, the tomatoes are still available! Come pick up anytime 😊", time: "10:35 AM" },
+  ],
+  "2": [
+    { id: "m1", sender: "me", text: "Hey Raj, can I get some basil?", time: "9:00 AM" },
+    { id: "m2", sender: "them", text: "Of course! How many bunches do you need?", time: "9:05 AM" },
+    { id: "m3", sender: "me", text: "2 bunches please. Can I pick up tomorrow?", time: "9:06 AM" },
+    { id: "m4", sender: "them", text: "Sure, I'll keep the basil for you until tomorrow", time: "9:10 AM" },
+  ],
+  "3": [
+    { id: "m1", sender: "me", text: "Hi Siti! I'd love some mangoes", time: "Yesterday" },
+    { id: "m2", sender: "them", text: "Sorry, the mangoes are all taken now", time: "Yesterday" },
+  ],
+  "4": [
+    { id: "m1", sender: "them", text: "I have more chili seeds if you need!", time: "Yesterday" },
+  ],
+};
+
 export const currentUser: UserProfile = {
   name: "Ahmad Faizal",
   bio: "Avid tomato grower 🍅 | Sharing is caring | Taman Melawati",

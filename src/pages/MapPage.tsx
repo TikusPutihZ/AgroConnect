@@ -1,21 +1,26 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, X, MessageCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { mapPins } from "@/data/mockData";
+import mapBackground from "@/assets/map-background.jpg";
 
 const MapPage = () => {
   const [selectedPin, setSelectedPin] = useState<typeof mapPins[0] | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col h-full relative">
       {/* Mock map background */}
       <div className="flex-1 relative bg-accent overflow-hidden" style={{ minHeight: "calc(100vh - 64px)" }}>
         <img
-          src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=1200&fit=crop"
+          src={mapBackground}
           alt="Map"
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover"
+          width={800}
+          height={1200}
         />
         {/* Grid overlay for map feel */}
         <div className="absolute inset-0" style={{
@@ -94,7 +99,7 @@ const MapPage = () => {
                 </Badge>
               </div>
             </div>
-            <Button className="w-full mt-3 rounded-xl gap-2" size="sm">
+            <Button className="w-full mt-3 rounded-xl gap-2" size="sm" onClick={() => navigate(`/chat/${selectedPin.id}`)}>
               <MessageCircle className="w-4 h-4" />
               Chat with Seller
             </Button>
