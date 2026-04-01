@@ -30,14 +30,10 @@ const Index = () => {
       {/* Header */}
       <div className="px-5 pt-6 pb-3">
         <div className="flex items-center justify-between mb-1">
-          <div>
-            <div className="flex items-center gap-2">
-              <img src={agroconnectCircle} alt="AgroConnect" className="h-10 w-10 object-contain" />
-              <div>
-                <h1 className="text-lg font-bold text-primary tracking-tight">AgroConnect</h1>
-                <span className="font-cursive text-[10px] text-muted-foreground leading-none">by RasaRakyat</span>
-              </div>
-            </div>
+          <div className="flex items-center gap-2">
+            <img src={agroconnectCircle} alt="AgroConnect" className="h-10 w-10 object-contain" />
+            <h1 className="text-lg font-bold text-primary tracking-tight">AgroConnect</h1>
+            <span className="font-cursive text-sm text-muted-foreground">by RasaRakyat</span>
           </div>
           <button onClick={() => navigate("/chats")} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
             <MessageCircle className="w-6 h-6" />
