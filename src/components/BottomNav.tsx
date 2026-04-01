@@ -15,7 +15,7 @@ const BottomNav = () => {
   const navigate = useNavigate();
 
   // Hide on login and detail pages
-  if (location.pathname === "/" || location.pathname.startsWith("/post/")) return null;
+  if (location.pathname === "/" || location.pathname.startsWith("/post/") || location.pathname.startsWith("/chat")) return null;
 
   return (
     <nav className="sticky bottom-0 left-0 right-0 bg-card border-t border-border z-50">

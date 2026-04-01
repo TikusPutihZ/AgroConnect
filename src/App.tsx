@@ -31,6 +31,8 @@ const AppRoutes = () => {
         <Route path="/scanner" element={isLoggedIn ? <ScannerPage /> : <Navigate to="/" />} />
         <Route path="/post/:id" element={isLoggedIn ? <PostDetail /> : <Navigate to="/" />} />
         <Route path="/create" element={isLoggedIn ? <CreatePost /> : <Navigate to="/" />} />
+        <Route path="/chats" element={isLoggedIn ? <ChatListPage /> : <Navigate to="/" />} />
+        <Route path="/chat/:id" element={isLoggedIn ? <ChatPage /> : <Navigate to="/" />} />
         <Route path="/profile" element={isLoggedIn ? <ProfilePage /> : <Navigate to="/" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

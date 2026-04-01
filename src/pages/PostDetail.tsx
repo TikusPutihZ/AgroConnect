@@ -94,7 +94,7 @@ const PostDetail = () => {
 
       {/* Sticky CTA */}
       <div className="sticky bottom-0 p-4 bg-background border-t border-border">
-        <Button className="w-full h-12 text-base font-semibold rounded-xl gap-2">
+        <Button className="w-full h-12 text-base font-semibold rounded-xl gap-2" onClick={() => navigate(`/chat/1`)}>
           <MessageCircle className="w-5 h-5" />
           Chat with Poster
         </Button>
