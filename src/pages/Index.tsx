@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Search, MapPin, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import agroconnectLogoName from "@/assets/agroconnect-logo-name.png";
+import agroconnectCircle from "@/assets/agroconnect-circle.png";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import PostCard from "@/components/PostCard";
@@ -31,8 +31,13 @@ const Index = () => {
       <div className="px-5 pt-6 pb-3">
         <div className="flex items-center justify-between mb-1">
           <div>
-            <img src={agroconnectLogoName} alt="AgroConnect" className="h-12 object-contain" />
-            <span className="font-cursive text-xs text-muted-foreground">by RasaRakyat</span>
+            <div className="flex items-center gap-2">
+              <img src={agroconnectCircle} alt="AgroConnect" className="h-10 w-10 object-contain" />
+              <div>
+                <h1 className="text-lg font-bold text-primary tracking-tight">AgroConnect</h1>
+                <span className="font-cursive text-[10px] text-muted-foreground leading-none">by RasaRakyat</span>
+              </div>
+            </div>
           </div>
           <button onClick={() => navigate("/chats")} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
             <MessageCircle className="w-6 h-6" />
