@@ -27,9 +27,14 @@ const Index = () => {
     >
       {/* Header */}
       <div className="px-5 pt-6 pb-3">
-        <div className="flex items-center gap-2 mb-1">
-          <img src={agroconnectLogo} alt="AgroConnect" className="h-7 object-contain" />
-          <span className="font-cursive text-xs text-muted-foreground">by RasaRakyat</span>
+        <div className="flex items-center justify-between mb-1">
+          <div>
+            <img src={agroconnectLogoName} alt="AgroConnect" className="h-8 object-contain" />
+            <span className="font-cursive text-xs text-muted-foreground">by RasaRakyat</span>
+          </div>
+          <button onClick={() => navigate("/chats")} className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+            <MessageCircle className="w-6 h-6" />
+          </button>
         </div>
         <h1 className="text-2xl font-bold text-foreground">Hello, Neighbor! 👋</h1>
         <p className="text-sm text-muted-foreground mt-0.5">
