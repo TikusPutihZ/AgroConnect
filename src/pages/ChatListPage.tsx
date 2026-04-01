@@ -14,7 +14,7 @@ const ChatListPage = () => {
     >
       {/* Header */}
       <div className="px-5 pt-6 pb-3 flex items-center gap-3">
-        <button onClick={() => navigate(-1)} className="p-1 text-foreground">
+        <button onClick={() => navigate("/home")} className="p-1 text-foreground">
           <ArrowLeft className="w-5 h-5" />
         </button>
         <h1 className="text-xl font-bold text-foreground">Messages</h1>
