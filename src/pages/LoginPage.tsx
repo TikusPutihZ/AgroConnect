@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
-import agroconnectLogo from "@/assets/agroconnect-logo.png";
+import agroconnectCircle from "@/assets/agroconnect-circle.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
