@@ -49,7 +49,7 @@ const SettingsSheet = ({ open, onOpenChange }: SettingsSheetProps) => {
               <div className="w-10 h-1 rounded-full bg-border" />
             </div>
 
-            <div className="px-5 pb-8">
+            <div className="px-5 pb-24">
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-bold text-foreground">Settings</h2>
                 <button onClick={() => onOpenChange(false)} className="p-2 text-muted-foreground">
