@@ -5,11 +5,14 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
   return (
     <motion.div
       className="fixed inset-0 z-[100] flex items-center justify-center"
-      style={{ background: "linear-gradient(135deg, hsl(var(--primary)), hsl(152, 60%, 30%))" }}
+      style={{
+        background:
+          "linear-gradient(135deg, hsl(var(--primary)), hsl(152, 60%, 30%))",
+      }}
       initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: 0 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 10.0 }}
+      transition={{ delay: 3, duration: 0.5 }}
       onAnimationComplete={() => {}}
     >
       {/* Watery ripple circles */}
@@ -36,7 +39,8 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
       <motion.div
         className="absolute rounded-full"
         style={{
-          background: "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)",
         }}
         initial={{ width: 200, height: 200 }}
         animate={{ width: [200, 300, 200], height: [200, 300, 200] }}
@@ -64,8 +68,12 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <h1 className="text-3xl font-bold text-white tracking-tight">AgroConnect</h1>
-          <p className="font-cursive text-white/70 text-sm mt-1">by RasaRakyat</p>
+          <h1 className="text-3xl font-bold text-white tracking-tight">
+            AgroConnect
+          </h1>
+          <p className="font-cursive text-white/70 text-sm mt-1">
+            by RasaRakyat
+          </p>
         </motion.div>
 
         {/* Loading dots */}
@@ -85,11 +93,11 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
         </div>
       </motion.div>
 
-      {/* Auto-dismiss after 3 seconds */}
+      {/* Auto-dismiss after 3.5 seconds */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0 }}
-        transition={{ delay: 3 }}
+        transition={{ delay: 3.5 }}
         onAnimationComplete={onFinish}
       />
     </motion.div>
