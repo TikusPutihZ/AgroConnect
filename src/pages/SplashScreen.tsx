@@ -27,7 +27,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
             opacity: [0.5, 0],
           }}
           transition={{
-            duration: 5.0,
+            duration: 2.5,
             repeat: Infinity,
             delay: i * 0.8,
             ease: "easeOut",
