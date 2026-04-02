@@ -9,7 +9,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 2.0 }}
+      transition={{ duration: 20.0 }}
       onAnimationComplete={() => {}}
     >
       {/* Watery ripple circles */}
