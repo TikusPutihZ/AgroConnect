@@ -5,7 +5,7 @@ const SplashScreen = ({ onFinish }: { onFinish: () => void }) => {
   return (
     <motion.div
       className="fixed inset-0 z-[100] flex items-center justify-center"
-      style={{ background: "linear-gradient(135deg, hsl(var(--primary)), hsl(152, 60%, 30%))" }}
+      style={{ background: "linear-gradient(135deg, hsl(var(--primary)), hsl(152, 100%, 30%))" }}
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
