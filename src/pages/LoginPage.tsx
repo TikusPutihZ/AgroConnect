@@ -67,8 +67,8 @@ const LoginPage = () => {
         </button>
         {/* Logo */}
         <img src={agroconnectCircle} alt="AgroConnect" className="h-20 w-auto max-w-[280px] object-contain mb-1" />
-        <p className="font-cursive text-lg text-muted-foreground mt-0.5">by RasaRakyat</p>
-        <p className="text-sm text-muted-foreground mt-3 text-center">
+        <h1 className="mt-1 text-center text-xl font-semibold text-foreground">Welcome Back!</h1>
+        <p className="text-sm text-muted-foreground mt-1 text-center">
           Share your harvest, grow your community
         </p>
 

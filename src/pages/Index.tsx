@@ -3,6 +3,7 @@ import { Search, MapPin, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import agroconnectOriginal from "@/assets/agroConnect_LogoWithName-removebg-preview.png";
 import bgPicIndex from "@/assets/Bg_Pic_Index.jpg";
+import bgpicHeader from "@/assets/Bg_Pic_Header.jpg";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
 import PostCard from "@/components/PostCard";
@@ -30,17 +31,32 @@ const Index = () => {
     >
 
       <div className="relative z-10 flex min-h-full flex-col">
-      {/* Header */}
-      <div className="border-b border-emerald-200/60 bg-gradient-to-r from-emerald-100/50 via-emerald-50/40 to-teal-50/30 px-5 pb-4 pt-6">
-        <div className="flex items-center justify-between mb-1">
-          <div className="flex items-center gap-0.5">
+    {/* Header Container */}
+    <div className="relative border-b border-green-200/60 px-5 pb-4 pt-6 overflow-hidden">
+      
+      {/* Background Image Layer */}
+      <div 
+        className="absolute inset-0 z-0 opacity-15" // Adjust opacity-20 (0.2) to your liking
+        style={{
+          backgroundImage: `url(${bgpicHeader})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Content Layer (Must have relative and z-10 to sit above image) */}
+      <div className="relative z-10">
+        <div className="flex items-start justify-between mb-1">
+          <div className="flex items-center gap-1.5">
             <div className="flex h-7 w-auto items-center">
-              <img src={agroconnectOriginal} alt="" className="h-7 w-auto object-contain" />
+              <img src={agroconnectOriginal} alt="Logo" className="h-7 w-auto object-contain" />
             </div>
             <div className="leading-tight">
               <span className="font-cursive text-sm text-emerald-800/70 leading-none">by RasaRakyat</span>
             </div>
           </div>
+
           <button
             type="button"
             onClick={() => navigate("/chats")}
@@ -50,13 +66,15 @@ const Index = () => {
             <MessageCircle className="w-5 h-5" />
           </button>
         </div>
-        <h2 className="text-2xl font-bold text-emerald-950 mt-2 ml-3">
+
+        <h2 className="text-2xl font-bold text-green-900 mt-2 ml-3">
           Hello, Neighbor!
         </h2>
         <p className="text-sm font-medium text-emerald-800/85 mt-0.5 ml-3">
           Fresh crops from your community
         </p>
       </div>
+    </div>
 
       {/* Search bar */}
       <div className="px-5 mb-3 pt-4">
