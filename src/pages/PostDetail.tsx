@@ -7,6 +7,17 @@ import { posts } from "@/data/mockData";
 import { useLikes } from "@/context/LikesContext";
 import { cn } from "@/lib/utils";
 
+const meetupLocations: Record<string, string> = {
+  "1": "Taman Melawati Community Centre",
+  "2": "Kampung Baru Food Court",
+  "3": "Bukit Jalil Park Entrance",
+  "4": "Setiawangsa Market Pavilion",
+  "5": "Ampang Street Lantern Plaza",
+  "6": "Kota Damansara Green Market",
+  "7": "SS2 Night Food Hub",
+  "8": "Subang Jaya Central Mall",
+};
+
 const PostDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -38,7 +49,8 @@ const PostDetail = () => {
         />
         <button
           onClick={() => navigate(-1)}
-          className="absolute top-4 left-4 w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-md"
+          className="fixed w-10 h-10 rounded-full bg-card/80 backdrop-blur-sm flex items-center justify-center shadow-md z-50"
+          style={{ top: 'calc(50vh - 422px + 16px)', left: 'calc(50vw - 195px + 16px)' }}
         >
           <ArrowLeft className="w-5 h-5 text-card-foreground" />
         </button>
@@ -89,6 +101,45 @@ const PostDetail = () => {
         <div>
           <h2 className="text-sm font-semibold text-foreground mb-1">Description</h2>
           <p className="text-sm text-muted-foreground leading-relaxed">{post.description}</p>
+        </div>
+
+        {/* Meet-up Place */}
+        <div className="rounded-xl bg-green-900 p-4 text-white shadow-inner">
+          <h3 className="text-sm font-semibold mb-2 flex items-center gap-2">
+            <MapPin className="w-4 h-4" /> Meet-up Place
+          </h3>
+          <p className="text-sm">{meetupLocations[post.id] ?? "Near local community spot"}</p>
+        </div>
+
+        {/* Deal Safely */}
+        <div className="rounded-xl border bg-white p-4">
+          <h3 className="text-sm font-bold mb-3 text-green-900">🛡️ Deal Safely</h3>
+          <ul className="space-y-2 text-xs text-green-900">
+            <li className="flex gap-2">
+              <span>✓</span>
+              <span>Meet in public, busy places during daylight hours</span>
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span>
+              <span>Bring someone you trust with you</span>
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span>
+              <span>Inspect items before paying</span>
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span>
+              <span>Trust your instincts—if something feels off, walk away</span>
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span>
+              <span>Use secure payment methods</span>
+            </li>
+            <li className="flex gap-2">
+              <span>✓</span>
+              <span>Share your location with a trusted friend</span>
+            </li>
+          </ul>
         </div>
       </div>
 

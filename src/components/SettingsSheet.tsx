@@ -42,7 +42,13 @@ const SettingsSheet = ({ open, onOpenChange }: SettingsSheetProps) => {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="fixed bottom-0 left-0 right-0 bg-card rounded-t-3xl z-50 max-h-[85vh] overflow-y-auto"
+            className="fixed bg-card rounded-t-3xl z-50 overflow-y-auto"
+            style={{ 
+              bottom: '64px', 
+              left: 'calc(50vw - 195px)', 
+              width: '390px',
+              maxHeight: 'calc(100vh - 64px)'
+            }}
           >
             {/* Handle */}
             <div className="flex justify-center pt-3 pb-1">

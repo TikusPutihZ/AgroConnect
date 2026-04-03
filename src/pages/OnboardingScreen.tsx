@@ -47,12 +47,12 @@ const OnboardingScreen = ({ onFinish }: { onFinish: () => void }) => {
   const slide = slides[current];
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center min-h-screen px-8 bg-background">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center min-h-screen bg-muted">
       <div
-        className="w-full max-w-sm bg-cover bg-center rounded-xl overflow-hidden shadow-2xl"
+        className="w-[390px] h-[844px] bg-cover bg-center rounded-xl overflow-hidden shadow-2xl"
         style={{ backgroundImage: `url('${slide.image}')` }}
       >
-        <div className="bg-black/65 backdrop-blur-sm min-h-[600px] flex flex-col justify-between p-6 text-white">
+        <div className="bg-black/65 backdrop-blur-sm min-h-[844px] flex flex-col justify-between p-6 text-white">
           <div className="text-center">
             <p className="text-sm uppercase tracking-widest text-blue-200">
               {`Step ${current + 1} of ${slides.length}`}

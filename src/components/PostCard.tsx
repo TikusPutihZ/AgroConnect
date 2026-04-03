@@ -23,8 +23,11 @@ const PostCard = ({ post }: { post: Post }) => {
           loading="lazy"
         />
         <div className="flex flex-col flex-1 min-w-0 gap-1">
-          <div className="flex items-start justify-between gap-2 pr-8">
-            <h3 className="font-semibold text-sm text-card-foreground truncate">{post.title}</h3>
+          <div className="flex items-center justify-between gap-2 pr-8">
+            <div className="flex items-center gap-2 min-w-0">
+              <h3 className="font-semibold text-sm text-card-foreground truncate">{post.title}</h3>
+              <span className="text-xs text-muted-foreground flex-shrink-0">{post.quantity}</span>
+            </div>
             <Badge
               variant={post.price === null ? "default" : "secondary"}
               className={cn(
@@ -35,7 +38,6 @@ const PostCard = ({ post }: { post: Post }) => {
               {post.price === null ? "Free" : `RM${post.price}`}
             </Badge>
           </div>
-          <p className="text-xs text-muted-foreground">{post.quantity}</p>
           <div className="flex items-center gap-1 mt-auto">
             <MapPin className="w-3 h-3 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">{post.distance}</span>

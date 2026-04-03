@@ -56,6 +56,26 @@ const Index = () => {
             className="pl-9 bg-muted border-0 rounded-xl"
           />
         </div>
+        {/* Inspirational card */}
+        <div className="mt-4">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-green-50 via-white to-green-100 p-4">
+            <img
+              src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=80"
+              alt="Community farm field"
+              className="absolute inset-0 h-full w-full object-cover opacity-30"
+            />
+            <div className="relative z-10 space-y-2">
+              <span className="inline-flex items-center gap-2 rounded-full bg-green-900/90 px-2 py-1 text-xs font-bold tracking-wide text-white">
+                🌿 Grow Together!
+              </span>
+              <h3 className="text-lg font-bold text-green-900">Join the village harvest community</h3>
+              <p className="text-sm text-green-900">
+                List your fresh produce, support neighbors, and earn from local demand. Your next harvest hero story starts here.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Location chips */}
         <div className="flex gap-2 mt-2 overflow-x-auto pb-1 scrollbar-hide">
           {distances.map((d) => (

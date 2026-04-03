@@ -32,38 +32,53 @@ const ScannerPage = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-foreground relative overflow-hidden">
+    <div className="flex flex-col h-full bg-foreground relative overflow-hidden">
       {/* Camera viewfinder mock */}
-      <div className="flex-1 relative flex items-center justify-center">
+      <div className="flex-1 relative flex flex-col">
         {/* Live camera background */}
         <img src={scannerVegetable} alt="Camera feed" className="absolute inset-0 w-full h-full object-cover" />
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Viewfinder frame */}
-        <div className="relative w-64 h-64">
-          {/* Corner brackets */}
-          <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg" />
-          <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg" />
-          <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-lg" />
-          <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg" />
+        {/* Viewfinder container */}
+        <div className="flex-1 flex items-center justify-center">
+          {/* Viewfinder frame */}
+          <div className="relative w-64 h-64">
+            {/* Corner brackets */}
+            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-primary rounded-tl-lg" />
+            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-primary rounded-tr-lg" />
+            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-primary rounded-bl-lg" />
+            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-lg" />
 
-          {/* Scanning line animation */}
-          {scanning && (
-            <motion.div
-              className="absolute left-2 right-2 h-0.5 bg-primary shadow-lg shadow-primary/50"
-              animate={{ top: ["10%", "90%", "10%"] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-          )}
+            {/* Scanning line animation */}
+            {scanning && (
+              <motion.div
+                className="absolute left-2 right-2 h-0.5 bg-primary shadow-lg shadow-primary/50"
+                animate={{ top: ["10%", "90%", "10%"] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              />
+            )}
 
-          {/* Center icon */}
-          {!scanning && !result && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <ScanLine className="w-12 h-12 text-primary/60" />
-              <p className="text-primary/80 text-xs mt-2 font-medium">Point at a crop to scan</p>
-            </div>
-          )}
+            {/* Center icon */}
+            {!scanning && !result && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <ScanLine className="w-12 h-12 text-primary/60" />
+                <p className="text-primary/80 text-xs mt-2 font-medium">Point at a crop to scan</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Scan button */}
+        <div className="absolute bottom-20 left-0 right-0 flex justify-center">
+          <Button
+            onClick={startScan}
+            disabled={scanning}
+            className="w-20 h-20 rounded-full shadow-xl shadow-primary/40"
+            size="icon"
+          >
+            <ScanLine className="!w-8 !h-8" />
+          </Button>
         </div>
 
         {/* Header */}
@@ -77,18 +92,6 @@ const ScannerPage = () => {
             <span className="text-[10px] font-medium text-primary">AI Powered</span>
           </div>
         </div>
-      </div>
-
-      {/* Scan button */}
-      <div className="absolute bottom-24 left-0 right-0 flex justify-center">
-        <Button
-          onClick={startScan}
-          disabled={scanning}
-          className="w-16 h-16 rounded-full shadow-xl shadow-primary/40"
-          size="icon"
-        >
-          <ScanLine className="w-7 h-7" />
-        </Button>
       </div>
 
       {/* Result popup */}

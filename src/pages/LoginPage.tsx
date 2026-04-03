@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
-import agroconnectCircle from "@/assets/agroconnect-circle.png";
+import agroconnectCircle from "@/assets/agroConnect_LogoWithName-removebg-preview.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +28,7 @@ const LoginPage = () => {
         className="flex flex-col items-center w-full max-w-sm"
       >
         {/* Logo */}
-        <img src={agroconnectCircle} alt="AgroConnect" className="h-20 w-20 object-contain mb-1" />
+        <img src={agroconnectCircle} alt="AgroConnect" className="h-20 w-100 object-contain mb-1" />
         <p className="font-cursive text-lg text-muted-foreground mt-0.5">by RasaRakyat</p>
         <p className="text-sm text-muted-foreground mt-3 text-center">
           Share your harvest, grow your community
