@@ -9,6 +9,7 @@ import { LikesProvider } from "@/context/LikesContext";
 import { AnimatePresence } from "framer-motion";
 import MobileShell from "./components/MobileShell";
 import SplashScreen from "./pages/SplashScreen";
+import OnboardingScreen from "./pages/OnboardingScreen";
 import LoginPage from "./pages/LoginPage";
 import Index from "./pages/Index";
 import MapPage from "./pages/MapPage";
@@ -37,9 +38,27 @@ const AppRoutes = () => {
         <Route path="/chats" element={isLoggedIn ? <ChatListPage /> : <Navigate to="/" />} />
         <Route path="/chat/:id" element={isLoggedIn ? <ChatPage /> : <Navigate to="/" />} />
         <Route path="/profile" element={isLoggedIn ? <ProfilePage /> : <Navigate to="/" />} />
+        <Route path="/welcome" element={isLoggedIn ? <Index /> : <Navigate to="/" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </MobileShell>
+  );
+};
+
+const AppInner = ({ showSplash, onSplashComplete }: { showSplash: boolean; onSplashComplete: () => void }) => {
+  const { isLoggedIn, showOnboarding, completeOnboarding } = useAuth();
+
+  return (
+    <>
+      <AnimatePresence>
+        {showSplash && <SplashScreen onFinish={onSplashComplete} />}
+        {!showSplash && isLoggedIn && showOnboarding && (
+          <OnboardingScreen onFinish={completeOnboarding} />
+        )}
+      </AnimatePresence>
+
+      <AppRoutes />
+    </>
   );
 };
 
@@ -51,13 +70,13 @@ const App = () => {
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <AnimatePresence>
-          {showSplash && <SplashScreen onFinish={() => setShowSplash(false)} />}
-        </AnimatePresence>
         <BrowserRouter>
           <AuthProvider>
             <LikesProvider>
-              <AppRoutes />
+              <AppInner
+                showSplash={showSplash}
+                onSplashComplete={() => setShowSplash(false)}
+              />
             </LikesProvider>
           </AuthProvider>
         </BrowserRouter>

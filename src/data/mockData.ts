@@ -45,7 +45,7 @@ export const posts: Post[] = [
     category: "fruits",
     distance: "0.3 km",
     postedAt: "2 hours ago",
-    user: { name: "Aisha Binti Rahman", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" },
+    user: { name: "Aisha Binti Rahman", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop" },
     quantity: "2 kg",
   },
   {
@@ -160,7 +160,7 @@ export interface ChatMessage {
 }
 
 export const chatThreads: ChatThread[] = [
-  { id: "1", user: { name: "Aisha Binti Rahman", avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" }, lastMessage: "Yes, the tomatoes are still available! Come pick up anytime 😊", time: "2 min ago", unread: 2 },
+  { id: "1", user: { name: "Aisha Binti Rahman", avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop" }, lastMessage: "Yes, the tomatoes are still available! Come pick up anytime 😊", time: "2 min ago", unread: 2 },
   { id: "2", user: { name: "Raj Kumar", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" }, lastMessage: "Sure, I'll keep the basil for you until tomorrow", time: "1 hour ago", unread: 0 },
   { id: "3", user: { name: "Siti Nurhaliza", avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" }, lastMessage: "Sorry, the mangoes are all taken now", time: "3 hours ago", unread: 0 },
   { id: "4", user: { name: "Lee Wei Ming", avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" }, lastMessage: "I have more chili seeds if you need!", time: "Yesterday", unread: 1 },
