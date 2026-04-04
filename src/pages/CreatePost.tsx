@@ -71,6 +71,12 @@ const CreatePost = () => {
           />
         </div>
 
+        {/* Quantity */}
+        <div className="space-y-2">
+          <Label htmlFor="title">Quantity</Label>
+          <Input id="title" placeholder="e.g. 10kg..." className="rounded-xl" />
+        </div>
+
         {/* Sell / Give toggle */}
         <div className="flex items-center justify-between bg-muted rounded-xl p-4">
           <div>
