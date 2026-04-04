@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Apple } from "lucide-react";
 import { motion } from "framer-motion";
-import { Apple } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
-import agroconnectCircle from "@/assets/agroConnect_LogoWithName-removebg-preview.png";
+
+// New Assets for the redesigned header
+import agroconnectLogoWhite from "@/assets/AgroConnectLogo_WhiteName-removebg-preview.png";
+import authBackground from "@/assets/Bg_Pic_Authenthication.jpg";
 
 function GoogleGlyph({ className }: { className?: string }) {
   return (
@@ -50,30 +52,54 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col bg-background px-6 pb-8 pt-4">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-col items-center w-full max-w-sm mx-auto flex-1"
-      >
+    <div className="flex h-full flex-col bg-background overflow-hidden">
+      {/* Redesigned Header Section with half circle and logo */}
+      <div className="relative h-[27%] w-full overflow-hidden shrink-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ 
+            backgroundImage: `url(${authBackground})`,
+            clipPath: "ellipse(90% 100% at 50% 0%)" // Creates the bottom curved effect
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/[0.22] to-black/45" aria-hidden
+        style={{ 
+          clipPath: "ellipse(90% 100% at 50% 0%)" // Creates the bottom curved effect
+        }} />
+        <div className="absolute inset-0 bg-emerald-950/20" aria-hidden
+        style={{ 
+          clipPath: "ellipse(90% 100% at 50% 0%)" // Creates the bottom curved effect
+        }} />
+        <div className="absolute inset-0 flex items-center justify-center p-6">
+          <img 
+            src={agroconnectLogoWhite} 
+            alt="AgroConnect" 
+            className="w-full max-w-[280px] object-contain"
+          />
+        </div>
         <button
           type="button"
           onClick={() => navigate("/")}
-          className="self-start mb-4 flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground transition hover:bg-muted hover:text-foreground"
+          className="absolute top-4 left-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 text-white transition hover:bg-white/40"
           aria-label="Back"
         >
           <ArrowLeft className="h-5 w-5" />
         </button>
-        {/* Logo */}
-        <img src={agroconnectCircle} alt="AgroConnect" className="h-20 w-auto max-w-[280px] object-contain mb-1" />
-        <h1 className="mt-1 text-center text-xl font-semibold text-foreground">Welcome Back!</h1>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col items-center w-full max-w-sm mx-auto px-6 pb-8 pt-6"
+      >
+        {/* Retaining original text and form structure */}
+        <h1 className="text-center text-2xl font-bold text-foreground">Welcome Back!</h1>
         <p className="text-sm text-muted-foreground mt-1 text-center">
           Share your harvest, grow your community
         </p>
 
-        {/* Form */}
-        <form onSubmit={handleLogin} className="w-full mt-10 space-y-4">
+        <form onSubmit={handleLogin} className="w-full mt-8 space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -132,9 +158,9 @@ const LoginPage = () => {
           </button>
         </div>
 
-        <p className="text-xs text-muted-foreground mt-6">
+        <p className="text-sm text-muted-foreground mt-8">
           Don&apos;t have an account?{" "}
-          <Link to="/signup" className="text-primary font-medium hover:underline underline-offset-2">
+          <Link to="/signup" className="text-primary font-semibold hover:underline underline-offset-2">
             Create account
           </Link>
         </p>

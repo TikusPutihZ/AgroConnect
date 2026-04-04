@@ -36,7 +36,7 @@ const Index = () => {
       
       {/* Background Image Layer */}
       <div 
-        className="absolute inset-0 z-0 opacity-15" // Adjust opacity-20 (0.2) to your liking
+        className="absolute inset-0 z-0 opacity-30" // Adjust opacity-20 (0.2) to your liking
         style={{
           backgroundImage: `url(${bgpicHeader})`,
           backgroundSize: 'cover',
@@ -45,15 +45,17 @@ const Index = () => {
         aria-hidden="true"
       />
 
+    <div className="absolute inset-0 bg-emerald-200/20" aria-hidden />
+
       {/* Content Layer (Must have relative and z-10 to sit above image) */}
       <div className="relative z-10">
         <div className="flex items-start justify-between mb-1">
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-0.5">
             <div className="flex h-7 w-auto items-center">
               <img src={agroconnectOriginal} alt="Logo" className="h-7 w-auto object-contain" />
             </div>
             <div className="leading-tight">
-              <span className="font-cursive text-sm text-emerald-800/70 leading-none">by RasaRakyat</span>
+              <span className="font-cursive text-base text-emerald-800/70 leading-none">by RasaRakyat</span>
             </div>
           </div>
 
